@@ -1,0 +1,41 @@
+spring:
+    thymeleaf:
+        prefix: classpath:/templates/
+    datasource: 
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/production_data
+        username: root
+        password: 1123  
+ 
+mybatis: 
+    mapper-locations: classpath:mapper/*.xml
+
+environments:
+    dev:
+        url: http://dev.bar.com
+        name: Developer Setup
+    prod:
+        url: http://foo.bar.com
+        name: My Cool App
+
+mapper: 
+    mappers: com.whizen.util.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+    
+
+server:
+    port: 8080
+    servlet:
+        session:
+            timeout: 10
+    tomcat:
+        max-threads: 800
+        uri-encoding: UTF-8
+    
